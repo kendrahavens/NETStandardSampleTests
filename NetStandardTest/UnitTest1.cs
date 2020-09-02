@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ClassLibrary1;
+using System;
 
 namespace NetStandardTest
 {
@@ -22,19 +23,15 @@ namespace NetStandardTest
         [TestMethod]
         public void TestMethod3()
         {
-            Assert.Fail("long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test" +
-                "long message test long message test"
-                );
+            Assert.Fail("Intentionally fails");
         }
+
+#if NET472
+        [TestMethod]
+        public void Net472OnlyTest()
+        {
+            Assert.IsTrue(true);
+        }
+#endif
     }
 }
